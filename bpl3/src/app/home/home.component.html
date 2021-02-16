@@ -1,0 +1,661 @@
+<div class="banner">
+    <img src="../../assets/banner.png">
+</div>
+
+<div class="container">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Maven's Team 1</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>Maven's Team 2</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>Maven's Team 3</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>Maven's Team 4</td>
+                <td>0</td>
+            </tr>
+            <!-- and so on... -->
+        </tbody>
+    </table>
+</div>
+<div class="container teamsDiv">
+    <div class="border ">
+        <div class="teamImage"></div>
+        <div class="teamName ">MAVEN'S TEAM 1</div>
+    </div>
+
+    <div class="border">
+        <div class="teamImage"></div>
+        <div class="teamName">MAVEN'S TEAM 2</div>
+    </div>
+
+    <div class=" border">
+        <div class="teamImage"></div>
+        <div class="teamName">MAVEN'S TEAM 3</div>
+    </div>
+
+    <div class="border">
+        <div class="teamImage"></div>
+        <div class="teamName">MAVEN'S TEAM 4</div>
+    </div>
+</div>
+<br><br>
+<div class="container" id="btnDiv">
+    <div class="set active" id="shaperBtn" onclick="changeSet('shaper')">
+        <img src="../../assets/Sets/shaper.png">
+    </div>
+
+    <div class="set" id="elderBtn" onclick="changeSet('elder')">
+        <img src="../../assets/Sets/elder.png">
+    </div>
+
+    <div class="set" id="uElderBtn" onclick="changeSet('uElder')">
+        <img src="../../assets/Sets/uElder.png">
+    </div>
+
+    <div class="set" id="mavenBtn" onclick="changeSet('maven')">
+        <img src="../../assets/Sets/maven.png">
+    </div>
+
+    <div class="set" id="synthBtn" onclick="changeSet('synth')">
+        <img src="../../assets/Sets/synth.png">
+    </div>
+
+    <div class="set" id="uAtziriBtn" onclick="changeSet('uAtziri')">
+        <img src="../../assets/Sets/uAtziri.png">
+    </div>
+
+    <div class="set" id="xophBtn" onclick="changeSet('xoph')">
+        <img src="../../assets/Sets/xophs.png">
+    </div>
+
+    <div class="set" id="tulBtn" onclick="changeSet('tul')">
+        <img src="../../assets/Sets/tuls.png">
+    </div>
+
+    <div class="set" id="eshBtn" onclick="changeSet('esh')">
+        <img src="../../assets/Sets/eshs.png">
+    </div>
+
+    <div class="set" id="uulBtn" onclick="changeSet('uul')">
+        <img src="../../assets/Sets/uuls.png">
+    </div>
+
+    <div class="set" id="chayulaBtn" onclick="changeSet('chayula')">
+        <img src="../../assets/Sets/chayulas.png">
+    </div>
+</div>
+
+<div class="container" id="stashSets">
+    <div class="teamStash" id="shaperSet">
+        <div class="stashTitle" >Shaper's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Dying Sun</div>
+                <div class="itemObtained">Obtained by ROB_Zentun</div>
+                <div class="imgItem">
+                    <img src="../../assets/Shaper/sun.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Shaper's Touch</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Shaper/shaper_touch.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Solstice Vigil</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Shaper/solstice_vigil.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Starforge</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Shaper/starforge.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Voidwalker</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Shaper/voidwalker.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash ovrflw" id="elderSet">
+        <div class="stashTitle" >Elder's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Blasphemer's Grasp</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/blasphemer_grasp.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Cyclopean Coil</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/cyclopean_coil.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Hopeshredder</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem fixMargin">
+                    <img src="../../assets/Elder/hopeshredder.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Impressence (Cold)</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/impressence_cold.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Impressence (Fire)</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/impressence_fire.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Impressence (Light.)</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/impressence_light.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Impressence (Chaos)</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/impressence_chaos.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Impressence (Phys.)</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/impressence_phys.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Nebuloch</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/nebuloch.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Shimmeron</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/shimmeron.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Watcher's Eye</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Elder/watchers_eye.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash ovrflw" id="uElderSet">
+        <div class="stashTitle" >Uber Elder's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Disintegrator</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Disintegrator.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">The Eternity Shroud</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/The_Eternity.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Mark of the Elder</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Mark_of_the_Elder.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Mark of the Shaper</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Mark_of_the_Shaper.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Indigon</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Indigon.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Voidforge</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Voidforge.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Watcher's Eye</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/watchers_eye.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Voidfletcher</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uElder/Voidfletcher.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="uAtziriSet">
+        <div class="stashTitle" >Uber Atziri's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Atziri's Acuity</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uAtziri/acuity.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Atziri's Disfavour</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uAtziri/disfavour.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Atziri's Splendour</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uAtziri/splendour.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">The Vertex</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/uAtziri/vertex.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="mavenSet">
+        <div class="stashTitle" >Maven's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Arn's Anguish</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/arns.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Viridi's Veil</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/Viridi.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Doppelgänger Guise</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/doppel.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Legacy of Fury</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/legacy.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Graven's Secret</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/graven.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Olesya's Delight</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Maven/olesya.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash ovrflw" id="synthSet">
+        <div class="stashTitle" >Synthesis Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Bottled Faith</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Bottled_Faith.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Circle of Anguish</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Circle_of_Anguish.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Circle of Fear</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Circle_of_Fear.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Circle of Guilt</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Circle_of_Guilt.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Circle of Nostalgia</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Circle_of_Nostalgia.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Circle of Regret</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Circle_of_Regret.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Garb of the Ephemeral</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Garb_of_the_Ephemeral.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Offering to the Serpent</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Offering_to_the_Serpent.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Mask of the Tribunal</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Mask_of_the_Tribunal.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Storm's Gift</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Storms_Gift.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Bottled Faith</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Bottled_Faith.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Perepiteia</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Perepiteia.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Nebulis</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem ">
+                    <img src="../../assets/Synthesis/Nebulis.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="xophSet">
+        <div class="stashTitle" >Xoph's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">The Formless Inferno</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Formless_Inferno.png">
+                </div>
+            </div>
+
+            <div class="stashItem">
+                <div class="itemTitle">Xoph's Blood</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Xophs_Blood.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">Xoph's Nurture</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/xophs_nurture.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="tulSet">
+        <div class="stashTitle" >Tul's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">The Pandemonius</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Pandemonius.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">The Perfect Form</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Perfect_Form.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">Tulfall</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Tulfall.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="eshSet">
+        <div class="stashTitle" >Esh's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Choir of the Storm</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Choir_of_the_Storm.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">Hand of Wisdom and Action</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Hand_of_Wisdom_and_Action.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">Esh's Visage</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Eshs_Visage.png">
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <div class="teamStash" id="uulSet">
+        <div class="stashTitle" >Uul-Netol's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">The Surrender</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Surrender.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">The Red Trail</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Red_Trail.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">Uul-Netol's Embrace</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Uul-Netols_Embrace.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamStash" id="chayulaSet">
+        <div class="stashTitle" >Chayula's Set</div>
+        <div class="stashCollection">
+            <div class="stashItem">
+                <div class="itemTitle">Skin of the Lords</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/Skin_of_the_Lords.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">United in Dream</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/United_in_Dream.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">The Blue Nightmare</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Blue_Nightmare.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">The Green Nightmare</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Green_Nightmare.png">
+                </div>
+            </div>
+            <div class="stashItem">
+                <div class="itemTitle">The Red Nightmare</div>
+                <div class="itemNotObtained">Not obtained</div>
+                <div class="imgItem">
+                    <img src="../../assets/Breach/The_Red_Nightmare.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
