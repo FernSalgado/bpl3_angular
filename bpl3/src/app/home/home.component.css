@@ -5,20 +5,18 @@
     text-align: center;
     color:white;
 }
-.banner img{
-    width:100%;
-}
+
+
 .container{
     width:80%;
     margin-left:auto;
     margin-right:auto;
     display:flex;
-    margin-top:50px;
 }
 
 .border{
     margin-right:2%;
-    background-color: #FF9E5E;
+    background-color: #1F405B;
     padding-top:30px;
     padding-left:20px;
     padding-right:20px;
@@ -48,13 +46,13 @@
 
 .teamName{
     transform: skew(-2deg,-2deg);
-    background-color:#FF9E5E;
+    background-color:#1F405B;
     width:50%;
     padding:15px;
     margin-right:auto;
     margin-left:auto;
     font-size:1em;
-    text-shadow: 1.5px 1.5px #5E17EB;
+    text-shadow: 1.5px 1.5px #281C3C;
     color:white;
     text-align:center;
     font-weight: 1000;
@@ -64,18 +62,18 @@
 }
 
 .border:hover{
-    background-color:#5E17EB;
+    background-color:#281C3C;
 }
 
 .border:hover .teamName, .activeTeam{
-    background-color:#5E17EB;
-    text-shadow: 1.5px 1.5px #FF9E5E;
+    background-color:#281C3C;
+    text-shadow: 1.5px 1.5px #1F405B;
 }
 
 
 .set{
-    background-color:#FF9E5E;
-    border:#FF9E5E 10px solid;
+    background-color:#1F405B;
+    border:#1F405B 10px solid;
     margin-right:1%;
     box-sizing: border-box;
     width:8%;
@@ -93,23 +91,24 @@
 }
 
 .set:hover{
-    background-color:#5E17EB;
-    border:#5E17EB 10px solid;
+    background-color:#281C3C;
+    border:#281C3C 10px solid;
 }
 
 .teamStash{
     height:1000px;
     width:90%;
-    border:#5E17EB 30px solid;
+    border:#281C3C 20px solid;
     margin-left:auto;
     margin-right:auto;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .stashTitle{
-    height:50px;
-    background-image: linear-gradient(#f7ab78, #c96a2b);
+    height:40px;
+    background-image: linear-gradient( #1F405B,#1C253C);
     font-size:2em;
-    text-shadow: 1.5px 1.5px #5E17EB;
+    text-shadow: 1.5px 1.5px #281C3C;
     color:white;
     text-align:center;
     font-weight: 1000;
@@ -117,9 +116,9 @@
 
 .itemTitle{
     height:30px;
-    background-image: linear-gradient(#f7ab78, #c96a2b);
+    background-image: linear-gradient( #1F405B,#1C253C);
     font-size:1.2em;
-    text-shadow: 1.5px 1.5px #5E17EB;
+    text-shadow: 1.5px 1.5px #281C3C;
     color:white;
     text-align:center;
     font-weight: 1000;
@@ -135,7 +134,7 @@
     margin-top:20px;
     width:25%;
     margin-left:5%;
-    border:#5E17EB 10px solid;
+    border:#281C3C 10px solid;
     height:350px;
     background-color:#080808;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 1);
@@ -183,7 +182,7 @@
 }
 
 .active{
-    border:#5E17EB 10px solid;
+    border:#281C3C 10px solid;
 }
 
 table{
@@ -213,7 +212,7 @@ box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 
 .ovrflw::-webkit-scrollbar-thumb
 {
-  background-color: #FF9E5E; 
+  background-color: #1F405B; 
   background-image: -webkit-linear-gradient(45deg,
                                             rgba(255, 255, 255, .2) 25%,
                         transparent 25%,

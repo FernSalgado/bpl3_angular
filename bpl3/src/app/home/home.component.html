@@ -1,671 +1,671 @@
-<div class="banner">
-    <img src="../../assets/banner.png">
-</div>
+    <!-- TABLE -->
+    <br>
+    <div class="container tb">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-<!-- TABLE -->
-<div class="container tb">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Team </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="leader">
-          <th mat-header-cell *matHeaderCellDef> Leader </th>
-          <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
-        </ng-container>
-        <ng-container matColumnDef="points">
-            <th mat-header-cell *matHeaderCellDef> Points </th>
-            <td mat-cell *matCellDef="let element"> {{element.points}} </td>
-          </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-</div>
-<div class="container teamsDiv">
-    <div class="border" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''" (click)="changeTeam('Hidden')">
-        <div class="teamImage"><img src="../../assets/the_hidden_logo.png"></div>
-        <div class="teamName" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''">THE HIDDEN</div>
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Team </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="leader">
+            <th mat-header-cell *matHeaderCellDef> Leader </th>
+            <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
+            </ng-container>
+            <ng-container matColumnDef="points">
+                <th mat-header-cell *matHeaderCellDef> Points </th>
+                <td mat-cell *matCellDef="let element"> {{element.points}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
     </div>
 
-    <div class="border" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''" (click)="changeTeam('Formed')">
-        <div class="teamImage"><img src="../../assets/the_formed_logo.png"></div>
-        <div class="teamName" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''">THE FORMED</div>
+    <br>
+    <div class="container teamsDiv">
+        <div class="border" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''" (click)="changeTeam('Hidden')">
+            <div class="teamImage"><img src="../../assets/the_hidden_logo.png"></div>
+            <div class="teamName" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''">THE HIDDEN</div>
+        </div>
+
+        <div class="border" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''" (click)="changeTeam('Formed')">
+            <div class="teamImage"><img src="../../assets/the_formed_logo.png"></div>
+            <div class="teamName" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''">THE FORMED</div>
+        </div>
+
+        <div class=" border" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''" (click)="changeTeam('Feared')">
+            <div class="teamImage"><img src="../../assets/the_feared_logo.png"></div>
+            <div class="teamName" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''">THE FEARED</div>
+        </div>
+
+        <div class="border" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''" (click)="changeTeam('Twisted')">
+            <div class="teamImage"><img src="../../assets/the_twisted_logo.png"></div>
+            <div class="teamName" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''">THE TWISTED</div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container" id="btnDiv" >
+        <div *ngFor="let item of setNames" class="set" [ngClass]="(activeSet == item ) ? 'active' : ''" (click)="changeSet(item)">
+            <img src="../../assets/Sets/{{item}}.png">
+        </div>
     </div>
 
-    <div class=" border" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''" (click)="changeTeam('Feared')">
-        <div class="teamImage"><img src="../../assets/the_feared_logo.png"></div>
-        <div class="teamName" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''">THE FEARED</div>
-    </div>
+    <br><br>
+    <div class="container" id="stashSets">
+        <div class="teamStash" *ngIf="activeSet == 'shaper'">
+            <div class="stashTitle" >Shaper's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Dying Sun</div>
+                    <div class="itemObtained" *ngIf="activeItemList[0].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[0].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[0].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Shaper/sun.png">
+                    </div>
+                </div>
 
-    <div class="border" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''" (click)="changeTeam('Twisted')">
-        <div class="teamImage"><img src="../../assets/the_twisted_logo.png"></div>
-        <div class="teamName" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''">THE TWISTED</div>
-    </div>
-</div>
-<br><br>
-<div class="container" id="btnDiv" >
-    <div *ngFor="let item of setNames" class="set" [ngClass]="(activeSet == item ) ? 'active' : ''" (click)="changeSet(item)">
-        <img src="../../assets/Sets/{{item}}.png">
-    </div>
-</div>
+                <div class="stashItem">
+                    <div class="itemTitle">Shaper's Touch</div>
+                    <div class="itemObtained" *ngIf="activeItemList[1].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[1].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[1].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Shaper/shaper_touch.png">
+                    </div>
+                </div>
 
-<div class="container" id="stashSets">
-    <div class="teamStash" *ngIf="activeSet == 'shaper'">
-        <div class="stashTitle" >Shaper's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Dying Sun</div>
-                <div class="itemObtained" *ngIf="activeItemList[0].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[0].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[0].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Shaper/sun.png">
+                <div class="stashItem">
+                    <div class="itemTitle">Solstice Vigil</div>
+                    <div class="itemObtained" *ngIf="activeItemList[2].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[2].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[2].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Shaper/solstice_vigil.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Starforge</div>
+                    <div class="itemObtained" *ngIf="activeItemList[3].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[3].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[3].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Shaper/starforge.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Voidwalker</div>
+                    <div class="itemObtained" *ngIf="activeItemList[4].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[4].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[4].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Shaper/voidwalker.png">
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="stashItem">
-                <div class="itemTitle">Shaper's Touch</div>
-                <div class="itemObtained" *ngIf="activeItemList[1].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[1].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[1].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Shaper/shaper_touch.png">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'elder'">
+            <div class="stashTitle" >Elder's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Blasphemer's Grasp</div>
+                    <div class="itemObtained" *ngIf="activeItemList[12].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[12].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[12].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/blasphemer_grasp.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Cyclopean Coil</div>
+                    <div class="itemObtained" *ngIf="activeItemList[10].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[10].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[10].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/cyclopean_coil.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Hopeshredder</div>
+                    <div class="itemObtained" *ngIf="activeItemList[11].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[11].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[11].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/hopeshredder.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Impressence (Cold)</div>
+                    <div class="itemObtained" *ngIf="activeItemList[7].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[7].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[7].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/impressence_cold.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Impressence (Fire)</div>
+                    <div class="itemObtained" *ngIf="activeItemList[6].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[6].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[6].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/impressence_fire.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Impressence (Light.)</div>
+                    <div class="itemObtained" *ngIf="activeItemList[8].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[8].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[8].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/impressence_light.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Impressence (Chaos)</div>
+                    <div class="itemObtained" *ngIf="activeItemList[9].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[9].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[9].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/impressence_chaos.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Impressence (Phys.)</div>
+                    <div class="itemObtained" *ngIf="activeItemList[5].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[5].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[5].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/impressence_phys.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Nebuloch</div>
+                    <div class="itemObtained" *ngIf="activeItemList[14].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[14].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[14].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/nebuloch.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Shimmeron</div>
+                    <div class="itemObtained" *ngIf="activeItemList[13].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[13].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[13].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/shimmeron.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Watcher's Eye</div>
+                    <div class="itemObtained" *ngIf="activeItemList[15].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[15].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[15].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Elder/watchers_eye.png">
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="stashItem">
-                <div class="itemTitle">Solstice Vigil</div>
-                <div class="itemObtained" *ngIf="activeItemList[2].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[2].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[2].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Shaper/solstice_vigil.png">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'uElder'">
+            <div class="stashTitle" >Uber Elder's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Disintegrator</div>
+                    <div class="itemObtained" *ngIf="activeItemList[17].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[17].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[17].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Disintegrator.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">The Eternity Shroud</div>
+                    <div class="itemObtained" *ngIf="activeItemList[16].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[16].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[16].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/The_Eternity.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Mark of the Elder</div>
+                    <div class="itemObtained" *ngIf="activeItemList[19].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[19].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[19].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Mark_of_the_Elder.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Mark of the Shaper</div>
+                    <div class="itemObtained" *ngIf="activeItemList[20].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[20].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[20].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Mark_of_the_Shaper.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Indigon</div>
+                    <div class="itemObtained" *ngIf="activeItemList[21].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[21].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[21].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Indigon.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Voidforge</div>
+                    <div class="itemObtained" *ngIf="activeItemList[22].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[22].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[22].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Voidforge.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Watcher's Eye</div>
+                    <div class="itemObtained" *ngIf="activeItemList[23].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[23].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[23].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/watchers_eye.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Voidfletcher</div>
+                    <div class="itemObtained" *ngIf="activeItemList[18].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[18].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[18].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uElder/Voidfletcher.png">
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="stashItem">
-                <div class="itemTitle">Starforge</div>
-                <div class="itemObtained" *ngIf="activeItemList[3].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[3].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[3].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Shaper/starforge.png">
+        <div class="teamStash" *ngIf="activeSet == 'uAtziri'">
+            <div class="stashTitle" >Uber Atziri's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Atziri's Acuity</div>
+                    <div class="itemObtained" *ngIf="activeItemList[36].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[36].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[36].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uAtziri/acuity.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Atziri's Disfavour</div>
+                    <div class="itemObtained" *ngIf="activeItemList[37].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[37].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[37].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uAtziri/disfavour.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Atziri's Splendour</div>
+                    <div class="itemObtained" *ngIf="activeItemList[39].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[39].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[39].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uAtziri/splendour.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">The Vertex</div>
+                    <div class="itemObtained" *ngIf="activeItemList[38].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[38].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[38].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/uAtziri/vertex.png">
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="stashItem">
-                <div class="itemTitle">Voidwalker</div>
-                <div class="itemObtained" *ngIf="activeItemList[4].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[4].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[4].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Shaper/voidwalker.png">
+        <div class="teamStash" *ngIf="activeSet == 'maven'">
+            <div class="stashTitle" >Maven's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Arn's Anguish</div>
+                    <div class="itemObtained" *ngIf="activeItemList[42].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[42].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[42].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/arns.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Viridi's Veil</div>
+                    <div class="itemObtained" *ngIf="activeItemList[40].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[40].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[40].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/Viridi.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Doppelgänger Guise</div>
+                    <div class="itemObtained" *ngIf="activeItemList[41].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[41].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[41].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/doppel.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Legacy of Fury</div>
+                    <div class="itemObtained" *ngIf="activeItemList[43].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[43].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[43].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/legacy.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Graven's Secret</div>
+                    <div class="itemObtained" *ngIf="activeItemList[44].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[44].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[44].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/graven.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Olesya's Delight</div>
+                    <div class="itemObtained" *ngIf="activeItemList[45].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[45].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[45].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Maven/olesya.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'synth'">
+            <div class="stashTitle" >Synthesis Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Bottled Faith</div>
+    <div class="itemObtained" *ngIf="activeItemList[24].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[24].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[24].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Bottled_Faith.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Circle of Anguish</div>
+    <div class="itemObtained" *ngIf="activeItemList[25].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[25].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[25].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Circle_of_Anguish.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Circle of Fear</div>
+    <div class="itemObtained" *ngIf="activeItemList[26].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[26].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[26].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Circle_of_Fear.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Circle of Guilt</div>
+    <div class="itemObtained" *ngIf="activeItemList[27].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[27].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[27].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Circle_of_Guilt.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Circle of Nostalgia</div>
+    <div class="itemObtained" *ngIf="activeItemList[28].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[28].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[28].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Circle_of_Nostalgia.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Circle of Regret</div>
+    <div class="itemObtained" *ngIf="activeItemList[29].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[29].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[29].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Circle_of_Regret.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Garb of the Ephemeral</div>
+    <div class="itemObtained" *ngIf="activeItemList[30].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[30].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[30].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Garb_of_the_Ephemeral.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Offering to the Serpent</div>
+    <div class="itemObtained" *ngIf="activeItemList[31].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[31].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[31].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Offering_to_the_Serpent.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Mask of the Tribunal</div>
+    <div class="itemObtained" *ngIf="activeItemList[32].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[32].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[32].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Mask_of_the_Tribunal.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Storm's Gift</div>
+    <div class="itemObtained" *ngIf="activeItemList[33].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[33].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[33].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Storms_Gift.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Perepiteia</div>
+    <div class="itemObtained" *ngIf="activeItemList[34].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[34].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[34].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Perepiteia.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Nebulis</div>
+    <div class="itemObtained" *ngIf="activeItemList[35].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[35].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[35].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Synthesis/Nebulis.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamStash" *ngIf="activeSet == 'xophs'">
+            <div class="stashTitle" >Xoph's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">The Formless Inferno</div>
+                    <div class="itemObtained" *ngIf="activeItemList[46].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[46].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[46].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Formless_Inferno.png">
+                    </div>
+                </div>
+
+                <div class="stashItem">
+                    <div class="itemTitle">Xoph's Blood</div>
+                    <div class="itemObtained" *ngIf="activeItemList[47].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[47].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[47].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Xophs_Blood.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">Xoph's Nurture</div>
+                    <div class="itemObtained" *ngIf="activeItemList[48].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[48].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[48].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/xophs_nurture.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamStash" *ngIf="activeSet == 'tuls'">
+            <div class="stashTitle" >Tul's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">The Pandemonius</div>
+                    <div class="itemObtained" *ngIf="activeItemList[49].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[49].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[49].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Pandemonius.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">The Perfect Form</div>
+                    <div class="itemObtained" *ngIf="activeItemList[50].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[50].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[50].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Perfect_Form.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">Tulfall</div>
+                    <div class="itemObtained" *ngIf="activeItemList[51].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[51].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[51].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Tulfall.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamStash" *ngIf="activeSet == 'eshs'">
+            <div class="stashTitle" >Esh's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Choir of the Storm</div>
+                    <div class="itemObtained" *ngIf="activeItemList[52].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[52].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[52].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Choir_of_the_Storm.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">Hand of Wisdom and Action</div>
+                    <div class="itemObtained" *ngIf="activeItemList[53].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[53].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[53].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Hand_of_Wisdom_and_Action.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">Esh's Visage</div>
+                    <div class="itemObtained" *ngIf="activeItemList[54].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[54].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[54].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Eshs_Visage.png">
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+        <div class="teamStash" *ngIf="activeSet == 'uuls'">
+            <div class="stashTitle" >Uul-Netol's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">The Surrender</div>
+                    <div class="itemObtained" *ngIf="activeItemList[55].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[55].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[55].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Surrender.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">The Red Trail</div>
+                    <div class="itemObtained" *ngIf="activeItemList[56].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[56].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[56].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Red_Trail.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">Uul-Netol's Embrace</div>
+                    <div class="itemObtained" *ngIf="activeItemList[57].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[57].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[57].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Uul-Netols_Embrace.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="teamStash" *ngIf="activeSet == 'chayulas'">
+            <div class="stashTitle" >Chayula's Set</div>
+            <div class="stashCollection">
+                <div class="stashItem">
+                    <div class="itemTitle">Skin of the Lords</div>
+                    <div class="itemObtained" *ngIf="activeItemList[58].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[58].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[58].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/Skin_of_the_Lords.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">United in Dream</div>
+                    <div class="itemObtained" *ngIf="activeItemList[59].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[59].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[59].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/United_in_Dream.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">The Blue Nightmare</div>
+                    <div class="itemObtained" *ngIf="activeItemList[60].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[60].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[60].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Blue_Nightmare.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">The Green Nightmare</div>
+                    <div class="itemObtained" *ngIf="activeItemList[61].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[61].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[61].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Green_Nightmare.png">
+                    </div>
+                </div>
+                <div class="stashItem">
+                    <div class="itemTitle">The Red Nightmare</div>
+                    <div class="itemObtained" *ngIf="activeItemList[62].Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="activeItemList[62].Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="(activeItemList[62].Obtained == 'True' ? '' : 'notObtained')">
+                        <img src="../../assets/Breach/The_Red_Nightmare.png">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="teamStash ovrflw" *ngIf="activeSet == 'elder'">
-        <div class="stashTitle" >Elder's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Blasphemer's Grasp</div>
-                <div class="itemObtained" *ngIf="activeItemList[12].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[12].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[12].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/blasphemer_grasp.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Cyclopean Coil</div>
-                <div class="itemObtained" *ngIf="activeItemList[10].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[10].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[10].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/cyclopean_coil.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Hopeshredder</div>
-                <div class="itemObtained" *ngIf="activeItemList[11].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[11].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[11].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/hopeshredder.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Impressence (Cold)</div>
-                <div class="itemObtained" *ngIf="activeItemList[7].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[7].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[7].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/impressence_cold.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Impressence (Fire)</div>
-                <div class="itemObtained" *ngIf="activeItemList[6].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[6].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[6].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/impressence_fire.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Impressence (Light.)</div>
-                <div class="itemObtained" *ngIf="activeItemList[8].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[8].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[8].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/impressence_light.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Impressence (Chaos)</div>
-                <div class="itemObtained" *ngIf="activeItemList[9].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[9].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[9].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/impressence_chaos.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Impressence (Phys.)</div>
-                <div class="itemObtained" *ngIf="activeItemList[5].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[5].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[5].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/impressence_phys.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Nebuloch</div>
-                <div class="itemObtained" *ngIf="activeItemList[14].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[14].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[14].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/nebuloch.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Shimmeron</div>
-                <div class="itemObtained" *ngIf="activeItemList[13].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[13].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[13].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/shimmeron.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Watcher's Eye</div>
-                <div class="itemObtained" *ngIf="activeItemList[15].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[15].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[15].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Elder/watchers_eye.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash ovrflw" *ngIf="activeSet == 'uElder'">
-        <div class="stashTitle" >Uber Elder's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Disintegrator</div>
-                <div class="itemObtained" *ngIf="activeItemList[17].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[17].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[17].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Disintegrator.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">The Eternity Shroud</div>
-                <div class="itemObtained" *ngIf="activeItemList[16].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[16].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[16].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/The_Eternity.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Mark of the Elder</div>
-                <div class="itemObtained" *ngIf="activeItemList[19].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[19].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[19].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Mark_of_the_Elder.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Mark of the Shaper</div>
-                <div class="itemObtained" *ngIf="activeItemList[20].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[20].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[20].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Mark_of_the_Shaper.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Indigon</div>
-                <div class="itemObtained" *ngIf="activeItemList[21].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[21].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[21].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Indigon.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Voidforge</div>
-                <div class="itemObtained" *ngIf="activeItemList[22].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[22].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[22].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Voidforge.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Watcher's Eye</div>
-                <div class="itemObtained" *ngIf="activeItemList[23].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[23].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[23].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/watchers_eye.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Voidfletcher</div>
-                <div class="itemObtained" *ngIf="activeItemList[18].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[18].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[18].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uElder/Voidfletcher.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'uAtziri'">
-        <div class="stashTitle" >Uber Atziri's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Atziri's Acuity</div>
-                <div class="itemObtained" *ngIf="activeItemList[36].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[36].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[36].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uAtziri/acuity.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Atziri's Disfavour</div>
-                <div class="itemObtained" *ngIf="activeItemList[37].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[37].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[37].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uAtziri/disfavour.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Atziri's Splendour</div>
-                <div class="itemObtained" *ngIf="activeItemList[39].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[39].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[39].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uAtziri/splendour.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">The Vertex</div>
-                <div class="itemObtained" *ngIf="activeItemList[38].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[38].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[38].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/uAtziri/vertex.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'maven'">
-        <div class="stashTitle" >Maven's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Arn's Anguish</div>
-                <div class="itemObtained" *ngIf="activeItemList[42].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[42].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[42].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/arns.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Viridi's Veil</div>
-                <div class="itemObtained" *ngIf="activeItemList[40].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[40].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[40].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/Viridi.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Doppelgänger Guise</div>
-                <div class="itemObtained" *ngIf="activeItemList[41].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[41].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[41].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/doppel.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Legacy of Fury</div>
-                <div class="itemObtained" *ngIf="activeItemList[43].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[43].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[43].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/legacy.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Graven's Secret</div>
-                <div class="itemObtained" *ngIf="activeItemList[44].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[44].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[44].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/graven.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Olesya's Delight</div>
-                <div class="itemObtained" *ngIf="activeItemList[45].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[45].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[45].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Maven/olesya.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash ovrflw" *ngIf="activeSet == 'synth'">
-        <div class="stashTitle" >Synthesis Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Bottled Faith</div>
-<div class="itemObtained" *ngIf="activeItemList[24].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[24].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[24].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Bottled_Faith.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Circle of Anguish</div>
-<div class="itemObtained" *ngIf="activeItemList[25].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[25].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[25].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Circle_of_Anguish.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Circle of Fear</div>
-<div class="itemObtained" *ngIf="activeItemList[26].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[26].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[26].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Circle_of_Fear.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Circle of Guilt</div>
-<div class="itemObtained" *ngIf="activeItemList[27].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[27].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[27].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Circle_of_Guilt.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Circle of Nostalgia</div>
-<div class="itemObtained" *ngIf="activeItemList[28].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[28].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[28].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Circle_of_Nostalgia.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Circle of Regret</div>
-<div class="itemObtained" *ngIf="activeItemList[29].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[29].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[29].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Circle_of_Regret.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Garb of the Ephemeral</div>
-<div class="itemObtained" *ngIf="activeItemList[30].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[30].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[30].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Garb_of_the_Ephemeral.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Offering to the Serpent</div>
-<div class="itemObtained" *ngIf="activeItemList[31].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[31].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[31].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Offering_to_the_Serpent.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Mask of the Tribunal</div>
-<div class="itemObtained" *ngIf="activeItemList[32].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[32].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[32].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Mask_of_the_Tribunal.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Storm's Gift</div>
-<div class="itemObtained" *ngIf="activeItemList[33].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[33].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[33].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Storms_Gift.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Perepiteia</div>
-<div class="itemObtained" *ngIf="activeItemList[34].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[34].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[34].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Perepiteia.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Nebulis</div>
-<div class="itemObtained" *ngIf="activeItemList[35].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[35].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[35].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Synthesis/Nebulis.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'xophs'">
-        <div class="stashTitle" >Xoph's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">The Formless Inferno</div>
-                <div class="itemObtained" *ngIf="activeItemList[46].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[46].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[46].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Formless_Inferno.png">
-                </div>
-            </div>
-
-            <div class="stashItem">
-                <div class="itemTitle">Xoph's Blood</div>
-                <div class="itemObtained" *ngIf="activeItemList[47].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[47].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[47].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Xophs_Blood.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">Xoph's Nurture</div>
-                <div class="itemObtained" *ngIf="activeItemList[48].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[48].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[48].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/xophs_nurture.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'tuls'">
-        <div class="stashTitle" >Tul's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">The Pandemonius</div>
-                <div class="itemObtained" *ngIf="activeItemList[49].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[49].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[49].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Pandemonius.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">The Perfect Form</div>
-                <div class="itemObtained" *ngIf="activeItemList[50].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[50].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[50].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Perfect_Form.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">Tulfall</div>
-                <div class="itemObtained" *ngIf="activeItemList[51].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[51].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[51].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Tulfall.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'eshs'">
-        <div class="stashTitle" >Esh's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Choir of the Storm</div>
-                <div class="itemObtained" *ngIf="activeItemList[52].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[52].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[52].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Choir_of_the_Storm.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">Hand of Wisdom and Action</div>
-                <div class="itemObtained" *ngIf="activeItemList[53].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[53].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[53].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Hand_of_Wisdom_and_Action.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">Esh's Visage</div>
-                <div class="itemObtained" *ngIf="activeItemList[54].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[54].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[54].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Eshs_Visage.png">
-                </div>
-            </div>    
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'uuls'">
-        <div class="stashTitle" >Uul-Netol's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">The Surrender</div>
-                <div class="itemObtained" *ngIf="activeItemList[55].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[55].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[55].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Surrender.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">The Red Trail</div>
-                <div class="itemObtained" *ngIf="activeItemList[56].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[56].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[56].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Red_Trail.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">Uul-Netol's Embrace</div>
-                <div class="itemObtained" *ngIf="activeItemList[57].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[57].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[57].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Uul-Netols_Embrace.png">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="teamStash" *ngIf="activeSet == 'chayulas'">
-        <div class="stashTitle" >Chayula's Set</div>
-        <div class="stashCollection">
-            <div class="stashItem">
-                <div class="itemTitle">Skin of the Lords</div>
-                <div class="itemObtained" *ngIf="activeItemList[58].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[58].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[58].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/Skin_of_the_Lords.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">United in Dream</div>
-                <div class="itemObtained" *ngIf="activeItemList[59].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[59].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[59].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/United_in_Dream.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">The Blue Nightmare</div>
-                <div class="itemObtained" *ngIf="activeItemList[60].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[60].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[60].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Blue_Nightmare.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">The Green Nightmare</div>
-                <div class="itemObtained" *ngIf="activeItemList[61].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[61].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[61].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Green_Nightmare.png">
-                </div>
-            </div>
-            <div class="stashItem">
-                <div class="itemTitle">The Red Nightmare</div>
-                <div class="itemObtained" *ngIf="activeItemList[62].Obtained == 'True'">Obtained</div>
-                <div class="itemNotObtained" *ngIf="activeItemList[62].Obtained != 'True'">Not obtained</div>
-                <div class="imgItem" [ngClass]="(activeItemList[62].Obtained == 'True' ? '' : 'notObtained')">
-                    <img src="../../assets/Breach/The_Red_Nightmare.png">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
