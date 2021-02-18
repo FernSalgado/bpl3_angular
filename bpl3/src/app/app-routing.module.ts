@@ -7,7 +7,7 @@ import { MembersComponent } from './members/members.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'/members',pathMatch:'full'},
-  { path:'home',component:HomeComponent},
+  { path:'placeholder-url',component:HomeComponent},
   { path:'members',component:MembersComponent}
 ];
 
