@@ -44,4 +44,17 @@ export class MembersComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  checkTeam(teamName){
+    if (teamName === 'The Hidden')
+      return "../../assets/the_hidden.png";
+
+    if (teamName === 'The Twisted')
+      return "../../assets/the_twisted.png";
+
+    if (teamName === 'The Feared')
+      return "../../assets/the_feared.png";
+
+    if (teamName === 'The Formed')
+      return "../../assets/the_formed.png";
+  }
 }

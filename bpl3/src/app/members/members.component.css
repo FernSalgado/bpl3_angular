@@ -29,3 +29,15 @@ table tr:nth-child(even){
     width:100%;
     color:white;
 }
+
+.logo{
+    width:30px;
+    height: 30px;
+    vertical-align:middle;
+}
+
+.teamName{
+}
+
+.team{
+}
