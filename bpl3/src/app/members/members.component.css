@@ -1,0 +1,31 @@
+.table{
+    width:70%;
+    margin-left:auto;
+    margin-right:auto;
+    color: white !important;;
+}
+
+table{
+    width:100%;
+}
+
+table td, table th{
+    color:white;
+}
+
+table tr:nth-child(odd){
+    background-color:#1F3E5A;
+}
+table tr:nth-child(even){
+    background-color:#1C253C;
+}
+
+.paginator{
+    background-color:#1C253C;
+    color:white;
+}
+
+.filter{
+    width:100%;
+    color:white;
+}
