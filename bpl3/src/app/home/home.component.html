@@ -29,14 +29,14 @@
             <div class="teamName" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''">THE TWISTED</div>
         </div>
     </div>
-    <br><br>
+    <br><br><br>
     <div class="container" id="btnDiv" >
-        <div *ngFor="let item of setNames" class="set" [ngClass]="(activeSet == item ) ? 'active' : ''" (click)="changeSet(item)">
+        <div *ngFor="let item of setNames" class="set" [ngClass]="(activeSet == item ) ? 'active' : 'inactive'" (click)="changeSet(item)">
             <img src="../../assets/Sets/{{item}}.png">
         </div>
     </div>
 
-    <br><br>
+    <br><br><br>
     <div class="container" id="stashSets">
         <div class="teamStash" *ngIf="activeSet == 'shaper'">
             <div class="stashTitle" >Shaper's Set</div>

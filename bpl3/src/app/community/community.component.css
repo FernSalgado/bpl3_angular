@@ -9,25 +9,70 @@
     margin-left:auto;
     margin-right:auto;
 }
-.example-header-image {
-    
-}
+
 
 .communityStreamers{
     display:flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: flex-start;
+    align-content: space-between;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    height:1000px;
+    width:90%;
+    border:#281C3C 20px solid;
+    padding-left:10px;
+    padding-right:10px;
+    border-radius: 5px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .communityCard{
-    width:20%;
-    margin-left:5%;
+    width:15%;
+    margin-top:2%;
+    margin-right:5%;
+    max-height: 400px;
+    min-width: 315px;
 }
 
+.logo-team{
+    width:30px;
+    height: 30px;
+    vertical-align:middle;
+    font-size:15px;
+}
+.logo{
+    vertical-align:middle;
+    padding-right:2px;
+}
 .divBtn{
     display:flex;
     justify-content: center;
 }
-.btnTwitch{
+
+.communityStreamers::-webkit-scrollbar-track
+{
+box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.communityStreamers::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+.communityStreamers::-webkit-scrollbar-thumb
+{
+  background-color: #1F405B; 
+  background-image: -webkit-linear-gradient(45deg,
+                                            rgba(255, 255, 255, .2) 25%,
+                        transparent 25%,
+                        transparent 50%,
+                        rgba(255, 255, 255, .2) 50%,
+                        rgba(255, 255, 255, .2) 75%,
+                        transparent 75%,
+                        transparent)
 }

@@ -7,28 +7,32 @@
 
 <div class="container">
     <br>
-    <mat-card class="badgerCard" *ngIf="badger != undefined">
+    <mat-card class="badgerCard mat-elevation-z8" *ngIf="badger != undefined">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image" style="background-image: url('../../assets/Streamers/ThisIsBadger.png');background-size: cover;"></div>
           <mat-card-title>ThisIsBadger</mat-card-title>
           <mat-card-subtitle>Playing {{badger.game_name}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="replaceUrl(element.thumbnail_url,'1000','600')" alt="ThisIsBadger">
+        <img mat-card-image [src]="replaceUrl(badger.thumbnail_url,'1000','600')" alt="ThisIsBadger">
         <mat-card-content>
           <p>
             <mat-chip-list>
-                <mat-chip color="accent" selected>Language: {{badger.language}}</mat-chip>
-                <mat-chip color="primary" selected>Viewers: {{badger.viewer_count}}</mat-chip>
-                <mat-chip color="warn" selected>Team: TBD</mat-chip>
-            </mat-chip-list>
+              <mat-chip color="accent" selected><span class="tag" ><span class="material-icons logo">
+                language
+                </span>{{badger.language}}</span></mat-chip>
+              <mat-chip color="primary" selected><span class="tag" ><span class="material-icons logo">
+                groups
+                </span>{{badger.viewer_count}}</span></mat-chip>
+              <mat-chip color="warn" selected><span class="tag" ><img class="logo-team" src="../../assets/the_feared.png"> TBD</span></mat-chip>
+          </mat-chip-list>
             <br>
             <span>
                 {{badger.title}}
             </span>
           </p>
         </mat-card-content>
-        <mat-card-actions>
-            <a href="https://www.twitch.tv/ThisIsBadger" class="btnTwitch" color="accent" mat-raised-button>WATCH LIVE</a>
+        <mat-card-actions class="divBtn">
+          <a href="https://www.twitch.tv/{{badger.user_name}}" class="btnTwitch" color="accent" mat-raised-button>WATCH LIVE</a>
         </mat-card-actions>
       </mat-card>
           <div *ngIf="badger == undefined">
@@ -38,7 +42,7 @@
 </div>
 <br>
 <div class="communityStreamers">
-    <mat-card class="communityCard" *ngFor="let element of streamersModel">
+      <mat-card class="communityCard mat-elevation-z8" *ngFor="let element of streamersModel">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"  style="background-image: url('../../assets/Streamers/{{element.user_name}}.png');background-size: cover;"></div>
           <mat-card-title>{{element.user_name}}</mat-card-title>
@@ -48,9 +52,13 @@
         <mat-card-content>
           <p>
             <mat-chip-list>
-                <mat-chip color="accent" selected>Language: {{element.language}}</mat-chip>
-                <mat-chip color="primary" selected>Viewers: {{element.viewer_count}}</mat-chip>
-                <mat-chip color="warn" selected>Team: TBD</mat-chip>
+                <mat-chip color="accent" selected><span class="tag" ><span class="material-icons logo">
+                  language
+                  </span>{{element.language}}</span></mat-chip>
+                <mat-chip color="primary" selected><span class="tag" ><span class="material-icons logo">
+                  groups
+                  </span>{{element.viewer_count}}</span></mat-chip>
+                <mat-chip color="warn" selected><span class="tag" ><img class="logo-team" src="../../assets/the_feared.png"> TBD</span></mat-chip>
             </mat-chip-list>
             <br>
             <span>
