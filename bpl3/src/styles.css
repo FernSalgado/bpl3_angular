@@ -18,8 +18,10 @@ body{
     height:initial;
 }
 
-.bg{
-
+.menu{
+    width:100%;
+    background-color: #281C3C;
+    padding:10px;
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

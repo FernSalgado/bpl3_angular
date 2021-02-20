@@ -1,4 +1,9 @@
-    <!-- TABLE -->
+<button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/home">Home</button>
+  <button mat-menu-item routerLink="/members">Members</button>
+  <button mat-menu-item routerLink="/community">Community</button>
+</mat-menu>
     <br>
     
 
