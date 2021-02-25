@@ -15,7 +15,7 @@
     display:flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-content: space-between;
+    justify-content:  space-around;
     overflow-y:scroll;
     overflow-x: hidden;
     height:1000px;
@@ -31,7 +31,7 @@
 .communityCard{
     width:15%;
     margin-top:2%;
-    margin-right:5%;
+    margin-right:2%;
     max-height: 400px;
     min-width: 315px;
 }
@@ -75,4 +75,15 @@ box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
                         rgba(255, 255, 255, .2) 75%,
                         transparent 75%,
                         transparent)
+}
+
+@media only screen and (max-width:1450px)
+{
+  .badgerCard{
+    max-width:50%;
+  }
+
+  .communityCard{
+    width:25%;
+  }
 }

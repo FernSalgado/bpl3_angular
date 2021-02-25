@@ -19,13 +19,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from  '@angular/material/button'
 import {MatChipsModule} from '@angular/material/chips';
 import {MatMenuModule} from '@angular/material/menu';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MembersComponent,
-    CommunityComponent
+    CommunityComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

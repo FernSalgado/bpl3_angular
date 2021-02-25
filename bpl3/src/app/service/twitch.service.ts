@@ -33,7 +33,6 @@ export class TwitchService {
       u = u + 'user_login='+item+'&';
     })
     return this.http.get(this.urlStreams + u, requestOptions).toPromise().then((data:any)=>{
-      console.log(data.data);
       return data.data;
     }).catch((e)=>{
       return e;
@@ -48,7 +47,6 @@ export class TwitchService {
       headers: header, 
     };
     return this.http.get(this.urlStreams + 'user_login=ThisIsBadger', requestOptions).toPromise().then((data:any)=>{
-      console.log(data.data);
       return data.data[0];
     }).catch((e)=>{
       return e;

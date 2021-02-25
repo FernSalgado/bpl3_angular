@@ -1,10 +1,6 @@
-<button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/home">Home</button>
-  <button mat-menu-item routerLink="/members">Members</button>
-  <button mat-menu-item routerLink="/community">Community</button>
-</mat-menu>
-
+<br>
+<app-menu></app-menu>
+<br>
 <div class="container">
     <br>
     <mat-card class="badgerCard mat-elevation-z8" *ngIf="badger != undefined">
@@ -23,7 +19,6 @@
               <mat-chip color="primary" selected><span class="tag" ><span class="material-icons logo">
                 groups
                 </span>{{badger.viewer_count}}</span></mat-chip>
-              <mat-chip color="warn" selected><span class="tag" ><img class="logo-team" src="../../assets/the_feared.png"> TBD</span></mat-chip>
           </mat-chip-list>
             <br>
             <span>
@@ -36,7 +31,7 @@
         </mat-card-actions>
       </mat-card>
           <div *ngIf="badger == undefined">
-                <mat-card style="text-align: center;">(Placeholder) ThisIsBadger is currently offline! Check others community streamers bellow.</mat-card>
+                <mat-card style="text-align: center;">ThisIsBadger is currently offline! Check others community streamers bellow.</mat-card>
             
           </div>
 </div>
@@ -58,7 +53,6 @@
                 <mat-chip color="primary" selected><span class="tag" ><span class="material-icons logo">
                   groups
                   </span>{{element.viewer_count}}</span></mat-chip>
-                <mat-chip color="warn" selected><span class="tag" ><img class="logo-team" src="../../assets/the_feared.png"> TBD</span></mat-chip>
             </mat-chip-list>
             <br>
             <span>

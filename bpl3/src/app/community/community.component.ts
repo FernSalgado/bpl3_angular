@@ -19,7 +19,6 @@ export class CommunityComponent implements OnInit {
     this.token = await this.getToken();
     this.streamersModel = await this.getStreamers();
     this.badger = await this.getBadger();
-    console.log(this.badger)
   }
   getToken = async() =>{
     try {
@@ -42,7 +41,6 @@ export class CommunityComponent implements OnInit {
   getBadger = async() =>{
     try {
       var response = await this.twitchService.getBadger(this.token.access_token);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -54,7 +52,6 @@ export class CommunityComponent implements OnInit {
     var re2 = /{height}/
     var str = url.replace(re1, w);
     str = str.replace(re2,h);
-    console.log(str);
     return str;
   }
 

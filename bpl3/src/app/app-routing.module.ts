@@ -7,9 +7,9 @@ import { CommunityComponent } from './community/community.component';
 
 
 const routes: Routes = [
-  { path:'', redirectTo:'/home',pathMatch:'full'},
-  { path:'home',component:HomeComponent},
-  { path:'members',component:MembersComponent},
+  { path:'', redirectTo:'/items',pathMatch:'full'},
+  { path:'items',component:HomeComponent},
+  { path:'ladder',component:MembersComponent},
   { path:'community', component: CommunityComponent}
 ];
 

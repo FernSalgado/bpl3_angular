@@ -1,43 +1,36 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-
-import * as MemberList from '../../assets/JSONs/BPL3Members.json'
-import * as TheFeared from '../../assets/JSONs/TheFeared.json'
-import * as TheTwisted from '../../assets/JSONs/TheTwisted.json'
-import * as TheHidden from '../../assets/JSONs/TheHidden.json'
-import * as TheFormed from '../../assets/JSONs/TheFormed.json'
-
-export interface Team {
-  name: string;
-  points: number;
-  leader:string;
-}
-
-const ELEMENT_DATA: Team[] = [
-  {name: TheHidden.default.Name, points:TheHidden.default.TotalPoints,leader:TheHidden.default.Leader},
-  {name: TheFeared.default.Name, points:TheFeared.default.TotalPoints,leader:TheFeared.default.Leader},
-  {name: TheTwisted.default.Name, points:TheTwisted.default.TotalPoints,leader:TheTwisted.default.Leader},
-  {name: TheFormed.default.Name, points:TheFormed.default.TotalPoints,leader:TheFormed.default.Leader}
-];
 import {Member} from "../models/Member";
+import { ApiService } from '../service/api.service';
+import { MatSort } from '@angular/material/sort';
+import { Team } from '../models/Team';
+
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css']
 })
 export class MembersComponent implements OnInit {
-  dataSource2 = ELEMENT_DATA;
-  displayedColumns: string[] = ['rank','account', 'team', 'charname', 'class','level','delve','points'];
-  displayedColumns2: string[] = ['name', 'leader', 'points'];
-  members:Member[] = MemberList.default;
-  dataSource = new MatTableDataSource(this.members);
+  dataSource2 :MatTableDataSource<Team>;
+  dataSource :MatTableDataSource<Member>; 
+  displayedColumns: string[] = ['rank','account', 'team', 'charname', 'class','level','delve'];
+  displayedColumns2: string[] = ['name', 'leader', 'totalPoints', 'setPoints','levelPoints','delvePoints'];
+  members:Member[] = [];
+  teams:Team[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+  constructor(private apiService:ApiService) { }
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.teams = await this.apiService.getTeams();
+    console.log(this.teams)
+    this.dataSource2 = new MatTableDataSource(this.teams);
+    this.members = await this.apiService.getMembers();
+    this.dataSource = new MatTableDataSource(this.members);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

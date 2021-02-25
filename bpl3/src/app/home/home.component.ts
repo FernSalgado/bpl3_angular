@@ -4,6 +4,8 @@ import * as TheFearedItems from '../../assets/JSONs/TheFearedItems.json'
 import * as TheTwistedItems from '../../assets/JSONs/TheTwistedItems.json'
 import * as TheHiddenItems from '../../assets/JSONs/TheHiddenItems.json'
 import * as TheFormedItems from '../../assets/JSONs/TheFormedItems.json'
+import { Item } from '../models/Item';
+import { ApiService } from '../service/api.service';
 
 
 
@@ -22,13 +24,14 @@ export class HomeComponent implements OnInit {
   the_twisted = false;
   the_formed = false;
   activeSet = 'shaper';
-  activeItemList = TheHiddenItems.default;
-  constructor() { }
+  activeItemList:Item[] = [];
+  constructor(private apiService:ApiService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.changeTeam("Hidden");
   }
 
-  changeTeam(team){
+  async changeTeam(team){
     this.the_feared = false;
     this.the_hidden = false;
     this.the_twisted = false;
@@ -37,24 +40,23 @@ export class HomeComponent implements OnInit {
     if (team === 'Hidden')
     {
       this.the_hidden = true;
-      this.activeItemList = TheHiddenItems.default;
+      this.activeItemList = await this.apiService.getItems("/TheHidden");
     }
     if (team === 'Feared')
     {
       this.the_feared = true;
-      this.activeItemList = TheFearedItems.default;
+      this.activeItemList = await this.apiService.getItems("/TheFeared");
     }    
     if (team === 'Twisted')
     {
       this.the_twisted = true;
-      this.activeItemList = TheTwistedItems.default;
+      this.activeItemList = await this.apiService.getItems("/TheTwisted");
     }
     if (team === 'Formed')
     {
       this.the_formed = true;
-      this.activeItemList = TheFormedItems.default;
+      this.activeItemList = await this.apiService.getItems("/TheFormed");
     }
-    console.log(this.activeItemList)
   }
 
   changeSet(set){

@@ -1,4 +1,5 @@
 export interface Member{
+    _id:string;
     CharacterName:string;
     AccountName:string;
     TeamName:string;
