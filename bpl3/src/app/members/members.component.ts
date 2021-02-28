@@ -15,7 +15,7 @@ export class MembersComponent implements OnInit {
   dataSource2 :MatTableDataSource<Team>;
   dataSource :MatTableDataSource<Member>; 
   displayedColumns: string[] = ['rank','account', 'team', 'charname', 'class','level','delve'];
-  displayedColumns2: string[] = ['name', 'leader', 'totalPoints', 'setPoints','levelPoints','delvePoints'];
+  displayedColumns2: string[] = ['name', 'leader', 'totalPoints', 'setPoints','levelPoints','delvePoints', 'bossPoints'];
   members:Member[] = [];
   teams:Team[] = [];
   @ViewChild(MatPaginator) paginator: MatPaginator;
