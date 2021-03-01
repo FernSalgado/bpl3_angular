@@ -20,6 +20,7 @@ import {MatButtonModule} from  '@angular/material/button'
 import {MatChipsModule} from '@angular/material/chips';
 import {MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './menu/menu.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MenuComponent } from './menu/menu.component';
     MatCardModule,
     MatButtonModule,
     MatChipsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSortModule
     ],
   providers: [],
   bootstrap: [AppComponent]

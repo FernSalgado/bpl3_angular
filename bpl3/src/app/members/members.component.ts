@@ -14,7 +14,7 @@ import { Team } from '../models/Team';
 export class MembersComponent implements OnInit {
   dataSource2 :MatTableDataSource<Team>;
   dataSource :MatTableDataSource<Member>; 
-  displayedColumns: string[] = ['rank','account', 'team', 'charname', 'class','level','delve'];
+  displayedColumns: string[] = ['Rank','account', 'TeamName', 'CharacterName', 'Class','Level','Delve'];
   displayedColumns2: string[] = ['name', 'leader', 'totalPoints', 'setPoints','levelPoints','delvePoints', 'bossPoints'];
   members:Member[] = [];
   teams:Team[] = [];
