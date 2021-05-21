@@ -21,7 +21,6 @@ export class StreamLadderComponent implements OnInit {
   }
 
   async loadTeams(){
-    console.log('update')
     this.teams = await this.apiService.getTeams();
   }
 
