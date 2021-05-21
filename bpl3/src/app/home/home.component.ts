@@ -43,8 +43,7 @@ export class HomeComponent implements OnInit {
     'Tul',
     'Uber Elder',
     'Uul-Netol',
-    'Xoph',
-    'Gems'
+    'Xoph'
   ];
   team1 = true;
   team2 = false;

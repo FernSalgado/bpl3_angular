@@ -5,8 +5,12 @@
     color: white !important;;
 }
 .input-bg{
-    background-color: white;
+    background-color:rgba(28,37,60,0.7);
     height: 59px;
+}
+.color{
+    color:white!important;
+
 }
 table{
     width:100%;
