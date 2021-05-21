@@ -15,12 +15,13 @@ export class StreamLadderComponent implements OnInit {
   displayedColumns2: string[] = ['name', 'totalPoints'];
   
   async ngOnInit(){
-    setInterval(this.loadTeams,20000);
+    setInterval(() => {this.loadTeams()},20*(60*1000));
     await this.loadTeams();
     this.dataSource2 = new MatTableDataSource(this.teams);
   }
 
   async loadTeams(){
+    console.log('update')
     this.teams = await this.apiService.getTeams();
   }
 
