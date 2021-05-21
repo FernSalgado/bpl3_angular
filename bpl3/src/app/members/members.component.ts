@@ -25,7 +25,6 @@ export class MembersComponent implements OnInit {
   }
   async ngOnInit() {
     this.teams = await this.apiService.getTeams();
-    console.log(this.teams)
     this.dataSource2 = new MatTableDataSource(this.teams);
     this.members = await this.apiService.getMembers();
     this.dataSource = new MatTableDataSource(this.members);

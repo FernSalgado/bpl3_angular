@@ -57,19 +57,19 @@ export class HomeComponent implements OnInit {
   async ngOnInit() {
     await this.changeTeam("Team1");
     this.itemSet = this.activeItemList.filter((item => item.SetName == "Shaper Set"))
-    console.log(this.itemSet);
   }
 
   setImage(name:string,setName:string){
     let re = /\s/g;
+    if (setName == "Labyrinth Jewel") return "../../assets/"+setName+"/"+name.replace(re,"_") + "_inventory_icon.png"
     return "../../assets/"+setName.replace(" Set","/")+name.replace(re,"_") + "_inventory_icon.png"
   }
   onChange(event){
     this.itemSet = [];
-    console.log(event)
-    this.itemSet = this.activeItemList.filter((item => item.SetName == event.value + " Set"))
-    this.activeSet = this.itemSet[0].SetName;
+    if (event.value == "Labyrinth Jewel") this.itemSet = this.activeItemList.filter((item => item.SetName == event.value))
+    else this.itemSet = this.activeItemList.filter((item => item.SetName == event.value + " Set"))
     console.log(this.itemSet)
+    this.activeSet = this.itemSet[0].SetName;
   }
   async changeTeam(team){
     this.team1 = false;
@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
     if (team === 'Team3')
     {
       this.team3 = true;
-      this.activeItemList = await this.apiService.getItems("/Tema3");
+      this.activeItemList = await this.apiService.getItems("/Team3");
     }
   }
 
