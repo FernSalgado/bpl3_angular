@@ -33,6 +33,7 @@
 .teamImage{
     background-color: #1F405B;
     border-radius: 100%;
+    transition: all, .5s, ease-in-out;
     padding:10px;
     }
 
@@ -60,16 +61,19 @@
     width:90%;
 }
 
-.teamImage:hover{
+.teamImage:hover:not(.activeTeam){
     background-color:#281C3C;
 }
 
 .teamImage:hover .teamName, .activeTeam{
+    transition: all, .5s, ease-in-out;
+    transform: scale(1.3);
     background-color:#281C3C;
     text-shadow: 1.5px 1.5px #1F405B;
 }
 .activeTeamName{
     text-shadow: 5px 5px #281C3C;
+    padding-top:20px;
 }
 .mat-select-panel{
     background-color: red;

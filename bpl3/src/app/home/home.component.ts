@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     'Synthesis',
     'Tul',
     'Uber Elder',
-    'Uul',
+    'Uul-Netol',
     'Xoph',
     'Gems'
   ];
