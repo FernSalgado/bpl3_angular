@@ -21,6 +21,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './menu/menu.component';
 import { MatSortModule } from '@angular/material/sort';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatChipsModule,
     MatMenuModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule
     ],
   providers: [],
   bootstrap: [AppComponent]

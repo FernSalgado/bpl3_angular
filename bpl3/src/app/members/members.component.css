@@ -4,7 +4,10 @@
     margin-right:auto;
     color: white !important;;
 }
-
+.input-bg{
+    background-color: white;
+    height: 59px;
+}
 table{
     width:100%;
 }
@@ -27,8 +30,6 @@ table tr:nth-child(even){
 
 .filter{
     width:100%;
-    color:white;
-    background-color:#1F3E5A;
 }
 
 .logo{

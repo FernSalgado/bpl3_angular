@@ -7,43 +7,41 @@
     <div class="container teamsDiv">
         <div class="lineTeams">
 
-            <div class="border" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''" (click)="changeTeam('Hidden')">
-                <div class="teamImage"><img src="../../assets/the_hidden_logo.png"></div>
-                <div class="teamName" [ngClass]="(the_hidden == true ) ? 'activeTeam' : ''">THE HIDDEN</div>
+            <div class="border" [ngClass]="(team1 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team1')">
+                <div class="teamImage"><img src="../../assets/chaos.png"></div>
+                <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeam' : ''">CHAOS</div>
             </div>
             
-            <div class="border" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''" (click)="changeTeam('Formed')">
-                <div class="teamImage"><img src="../../assets/the_formed_logo.png"></div>
-                <div class="teamName" [ngClass]="(the_formed == true ) ? 'activeTeam' : ''">THE FORMED</div>
+            <div class="border" [ngClass]="(team2 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team2')">
+                <div class="teamImage"><img src="../../assets/order.png"></div>
+                <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeam' : ''">ORDER</div>
             </div>
-        </div>
-        <div class="lineTeams">
 
-            <div class=" border" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''" (click)="changeTeam('Feared')">
-                <div class="teamImage"><img src="../../assets/the_feared_logo.png"></div>
-                <div class="teamName" [ngClass]="(the_feared == true ) ? 'activeTeam' : ''">THE FEARED</div>
-            </div>
-            
-            <div class="border" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''" (click)="changeTeam('Twisted')">
-                <div class="teamImage"><img src="../../assets/the_twisted_logo.png"></div>
-                <div class="teamName" [ngClass]="(the_twisted == true ) ? 'activeTeam' : ''">THE TWISTED</div>
+            <div class="border" [ngClass]="(team3 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team3')">
+                <div class="teamImage"><img src="../../assets/ruin.png"></div>
+                <div class="teamName" [ngClass]="(team3 == true ) ? 'activeTeam' : ''">RUIN</div>
             </div>
         </div>
     </div>
     <br><br><br>
-    <div class="container" id="btnDiv" >
-        <div *ngFor="let item of setNames" class="set" [ngClass]="(activeSet == item ) ? 'active' : 'inactive'" (click)="changeSet(item)">
-            <img src="../../assets/Sets/{{item}}.png">
-        </div>
+
+    <div class="container sets" id="" >
+        <mat-form-field appearance="fill" class="select">
+            <mat-label class="tes">Select set here</mat-label>
+            <mat-select matNativeControl (selectionChange)="onChange($event)">
+              <mat-option *ngFor="let option of setNames" [value]="option"
+                      [selected]="activeSet">{{ option }}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <br><br><br>
     <div class="container" id="stashSets">
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'shaper'">
-            <div class="stashTitle" >Shaper's Set</div>
-            <div class="stashCollection">
-                <div class="stashItem">
-                    <div class="itemTitle">Dying Sun</div>
+        <div class="teamStash ovrflw">
+            <div class="stashTitle" >{{activeSet}}</div>
+            <div class="stashCollection" >
+                <div class="stashItem" *ngFor="let item of itemSet">
+                    <div class="itemTitle">{{item.Name}}</div>
                     <div class="itemObtained" *ngIf="activeItemList[0].Obtained == 'True'">Obtained</div>
                     <div class="itemNotObtained" *ngIf="activeItemList[0].Obtained != 'True'">Not obtained</div>
                     <div class="imgItem" [ngClass]="(activeItemList[0].Obtained == 'True' ? '' : 'notObtained')">
@@ -51,45 +49,11 @@
                     </div>
                 </div>
 
-                <div class="stashItem">
-                    <div class="itemTitle">Shaper's Touch</div>
-                    <div class="itemObtained" *ngIf="activeItemList[1].Obtained == 'True'">Obtained</div>
-                    <div class="itemNotObtained" *ngIf="activeItemList[1].Obtained != 'True'">Not obtained</div>
-                    <div class="imgItem" [ngClass]="(activeItemList[1].Obtained == 'True' ? '' : 'notObtained')">
-                        <img src="../../assets/Shaper/shaper_touch.png">
-                    </div>
-                </div>
-
-                <div class="stashItem">
-                    <div class="itemTitle">Solstice Vigil</div>
-                    <div class="itemObtained" *ngIf="activeItemList[2].Obtained == 'True'">Obtained</div>
-                    <div class="itemNotObtained" *ngIf="activeItemList[2].Obtained != 'True'">Not obtained</div>
-                    <div class="imgItem" [ngClass]="(activeItemList[2].Obtained == 'True' ? '' : 'notObtained')">
-                        <img src="../../assets/Shaper/solstice_vigil.png">
-                    </div>
-                </div>
-
-                <div class="stashItem">
-                    <div class="itemTitle">Starforge</div>
-                    <div class="itemObtained" *ngIf="activeItemList[3].Obtained == 'True'">Obtained</div>
-                    <div class="itemNotObtained" *ngIf="activeItemList[3].Obtained != 'True'">Not obtained</div>
-                    <div class="imgItem" [ngClass]="(activeItemList[3].Obtained == 'True' ? '' : 'notObtained')">
-                        <img src="../../assets/Shaper/starforge.png">
-                    </div>
-                </div>
-
-                <div class="stashItem">
-                    <div class="itemTitle">Voidwalker</div>
-                    <div class="itemObtained" *ngIf="activeItemList[4].Obtained == 'True'">Obtained</div>
-                    <div class="itemNotObtained" *ngIf="activeItemList[4].Obtained != 'True'">Not obtained</div>
-                    <div class="imgItem" [ngClass]="(activeItemList[4].Obtained == 'True' ? '' : 'notObtained')">
-                        <img src="../../assets/Shaper/voidwalker.png">
-                    </div>
-                </div>
-            </div>
+                
         </div>
+        <!-- <--
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'elder'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Elder'">
             <div class="stashTitle" >Elder's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -193,7 +157,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'uElder'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Uber Elder'">
             <div class="stashTitle" >Uber Elder's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -262,7 +226,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'uAtziri'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Atziri'">
             <div class="stashTitle" >Uber Atziri's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -303,7 +267,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'maven'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Maven'">
             <div class="stashTitle" >Maven's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -362,7 +326,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'synth'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Synthesis'">
             <div class="stashTitle" >Synthesis Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -475,7 +439,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'xophs'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Xoph'">
             <div class="stashTitle" >Xoph's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -506,7 +470,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'tuls'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Tul'">
             <div class="stashTitle" >Tul's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -536,7 +500,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'eshs'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Esh'">
             <div class="stashTitle" >Esh's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -566,7 +530,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'uuls'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Uul'">
             <div class="stashTitle" >Uul-Netol's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -596,7 +560,7 @@
             </div>
         </div>
 
-        <div class="teamStash ovrflw" *ngIf="activeSet == 'chayulas'">
+        <div class="teamStash ovrflw" *ngIf="activeSet == 'Chayula'">
             <div class="stashTitle" >Chayula's Set</div>
             <div class="stashCollection">
                 <div class="stashItem">
@@ -639,6 +603,6 @@
                         <img src="../../assets/Breach/The_Red_Nightmare.png">
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div> -->
+        <!-- </div> -->
+    <!--</div> -->

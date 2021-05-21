@@ -18,44 +18,46 @@ import { ApiService } from '../service/api.service';
 })
 export class HomeComponent implements OnInit {
   
-  setNames = ['shaper','elder','uElder','maven','synth','uAtziri','xophs','tuls','uuls','eshs','chayulas'];
-  the_hidden = true;
-  the_feared = false;
-  the_twisted = false;
-  the_formed = false;
-  activeSet = 'shaper';
+  setNames = ['Shaper','Elder','Uber Elder','Maven','Synthesis','Atziri','Xoph','Tul','Uul','Esh','Chayula','Heist','Pale Court','Farrul','Fenumus','Saqawal','Craiceann','Betrayal', 'Incursion','Abyss','Harvest','Metamorph','Blight','Izaro\'s Labyrinth','Labyrinth Jewel','Gems'];
+  team1 = true;
+  team2 = false;
+  team3 = false;
+  activeSet = 'Shaper Set';
+  itemSet:Item[] = [];
   activeItemList:Item[] = [];
   constructor(private apiService:ApiService) { }
 
   async ngOnInit() {
-    await this.changeTeam("Hidden");
+    await this.changeTeam("Team1");
+    this.itemSet = this.activeItemList.filter((item => item.SetName == "Shaper Set"))
+    console.log(this.itemSet);
   }
-
+  onChange(event){
+    this.itemSet = [];
+    console.log(event)
+    this.itemSet = this.activeItemList.filter((item => item.SetName == event.value + " Set"))
+    this.activeSet = this.itemSet[0].SetName;
+    console.log(this.itemSet)
+  }
   async changeTeam(team){
-    this.the_feared = false;
-    this.the_hidden = false;
-    this.the_twisted = false;
-    this.the_formed = false;
+    this.team1 = false;
+    this.team2 = false;
+    this.team3 = false;
 
-    if (team === 'Hidden')
+    if (team === 'Team1')
     {
-      this.the_hidden = true;
-      this.activeItemList = await this.apiService.getItems("/TheHidden");
+      this.team1 = true;
+      this.activeItemList = await this.apiService.getItems("/Team1");
     }
-    if (team === 'Feared')
+    if (team === 'Team2')
     {
-      this.the_feared = true;
-      this.activeItemList = await this.apiService.getItems("/TheFeared");
+      this.team2 = true;
+      this.activeItemList = await this.apiService.getItems("/Team2");
     }    
-    if (team === 'Twisted')
+    if (team === 'Team3')
     {
-      this.the_twisted = true;
-      this.activeItemList = await this.apiService.getItems("/TheTwisted");
-    }
-    if (team === 'Formed')
-    {
-      this.the_formed = true;
-      this.activeItemList = await this.apiService.getItems("/TheFormed");
+      this.team3 = true;
+      this.activeItemList = await this.apiService.getItems("/Tema3");
     }
   }
 
