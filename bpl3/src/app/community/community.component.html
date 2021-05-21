@@ -37,9 +37,8 @@
 </div>
 <br>
 <div class="communityStreamers">
-      <!-- <mat-card class="communityCard mat-elevation-z8" *ngFor="let element of streamersModel">
+      <mat-card class="communityCard mat-elevation-z8" *ngFor="let element of streamersModel">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"  style="background-image: url('../../assets/Streamers/{{element.user_name}}.png');background-size: cover;"></div>
           <mat-card-title>{{element.user_name}}</mat-card-title>
           <mat-card-subtitle>Playing {{element.game_name}}</mat-card-subtitle>
         </mat-card-header>
@@ -47,9 +46,9 @@
         <mat-card-content>
           <p>
             <mat-chip-list>
-                <mat-chip color="accent" selected><span class="tag" ><span class="material-icons logo">
-                  language
-                  </span>{{element.language}}</span></mat-chip>
+                <mat-chip color="accent" selected><img width="20px"[src]="checkTeam(element.team)">
+      
+                  <span> {{element.team}}</span></mat-chip>
                 <mat-chip color="primary" selected><span class="tag" ><span class="material-icons logo">
                   groups
                   </span>{{element.viewer_count}}</span></mat-chip>
@@ -64,6 +63,6 @@
         <mat-card-actions class="divBtn">
           <a href="https://www.twitch.tv/{{element.user_name}}" class="btnTwitch" color="accent" mat-raised-button>WATCH LIVE</a>
         </mat-card-actions>
-      </mat-card> -->
+      </mat-card>
 </div>
 <br>

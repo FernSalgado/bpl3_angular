@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { twitchToken } from '../models/twitchToken';
 import { TwitchService } from '../service/twitch.service';
-import * as Streamers from '../../assets/JSONs/Streamers.json'
+import * as Streamers from '../../assets/JSONs/BPL4_Streamers.json';
+import * as Streamers2 from '../../assets/JSONs/BPL4_Streamers2.json';
 import { streamers } from '../models/twitchData';
+import { Streamer } from '../models/Streamer';
 
 @Component({
   selector: 'app-community',
@@ -10,7 +12,8 @@ import { streamers } from '../models/twitchData';
   styleUrls: ['./community.component.css']
 })
 export class CommunityComponent implements OnInit {
-  streamers:string[] = Streamers.default;
+  streamers:Streamer[] = Streamers.default;
+  streamers2:Streamer[] = Streamers2.default;
   constructor(private twitchService:TwitchService) { }
   token:twitchToken;
   streamersModel = [];
@@ -32,11 +35,34 @@ export class CommunityComponent implements OnInit {
   getStreamers = async() =>{
     try {
       var response = await this.twitchService.getStreamers(this.streamers,this.token.access_token);
+      var response2 = await this.twitchService.getStreamers(this.streamers2,this.token.access_token);
+      response.forEach(element => {
+        var c = 1;
+        var url = "https://www.twitch.tv/"+element.user_name;
+        console.log(url.toLocaleLowerCase())
+        var team = this.streamers.find(item => item.Url.toLocaleLowerCase() == url.toLocaleLowerCase());
+        console.log(element);
+        if (team) element.team = team.Team;
+      });
+      response2.forEach(element => {
+        var c = 1;
+        var url = "https://www.twitch.tv/"+element.user_name;
+        console.log(url.toLocaleLowerCase())
+        var team = this.streamers2.find(item => item.Url.toLocaleLowerCase() == url.toLocaleLowerCase());
+        console.log(element);
+        if (team) element.team = team.Team;
+      });
+      response = response.concat(response2);
     } catch (error) {
       console.log(error);
     }
-    return response;
+    const sort = response.sort((a,b)=> (a.viewer_count < b.viewer_count) ? 1 : -1);
+    return sort;
   };
+
+  checkTeam(team){
+    if (team != undefined) return "../../assets/"+team+".png";
+  }
 
   getBadger = async() =>{
     try {
