@@ -23,6 +23,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import { StreamLadderComponent } from './stream-ladder/stream-ladder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import {MatIconModule} from '@angular/material/icon';
     MembersComponent,
     CommunityComponent,
     MenuComponent,
+    StreamLadderComponent,
   ],
   imports: [
     BrowserModule,

@@ -37,13 +37,6 @@ export class MembersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   checkTeam(teamName){
-    if (teamName === 'Chaos')
-      return "../../assets/chaos.png";
-
-    if (teamName === 'Order')
-      return "../../assets/order.png";
-
-    if (teamName === 'Ruin')
-      return "../../assets/ruin.png";
+      return "../../assets/"+ teamName+".png";
   }
 }
