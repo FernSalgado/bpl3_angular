@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
     'Labyrinth Jewel',
     'Maven',
     'Metamorph',
+    'Replica',
     'Saqawal',
     'Shaper',
     'Pale Court',

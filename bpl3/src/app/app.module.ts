@@ -22,14 +22,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MenuComponent } from './menu/menu.component';
 import { MatSortModule } from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MembersComponent,
     CommunityComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatChipsModule,
     MatMenuModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
     ],
   providers: [],
   bootstrap: [AppComponent]
