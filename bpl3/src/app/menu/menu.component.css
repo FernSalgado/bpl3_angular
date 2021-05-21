@@ -130,16 +130,14 @@ DEPENDENCES
   */
   
   .page__custom-settings{
-    --menuBackgroundColor: #6c5ce7;
+    --menuBackgroundColor: #1F405B;
     --menuLinkColor: #fff;
-    --menuLinkColorUnactive: #241c69;
+    --menuLinkColorUnactive: #281C3C;
     --menuLinkOutlineOffset: -.5rem; 
   }
   .page{
     box-sizing: border-box;
-    max-width: 500px;
-    padding-left: .75rem;
-    padding-right: .75rem;
+    width: 95%;
     margin: auto;
   }
   

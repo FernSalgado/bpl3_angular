@@ -18,7 +18,34 @@ import { ApiService } from '../service/api.service';
 })
 export class HomeComponent implements OnInit {
   
-  setNames = ['Shaper','Elder','Uber Elder','Maven','Synthesis','Atziri','Xoph','Tul','Uul','Esh','Chayula','Heist','Pale Court','Farrul','Fenumus','Saqawal','Craiceann','Betrayal', 'Incursion','Abyss','Harvest','Metamorph','Blight','Izaro\'s Labyrinth','Labyrinth Jewel','Gems'];
+  setNames = [
+    'Abyss',
+    'Atziri',
+    'Betrayal', 
+    'Blight',
+    'Chayula',
+    'Craiceann',
+    'Elder',
+    'Esh',
+    'Farrul',
+    'Fenumus',
+    'Harvest',
+    'Heist',
+    'Incursion',
+    'Izaro\'s Labyrinth',
+    'Labyrinth Jewel',
+    'Maven',
+    'Metamorph',
+    'Saqawal',
+    'Shaper',
+    'Pale Court',
+    'Synthesis',
+    'Tul',
+    'Uber Elder',
+    'Uul',
+    'Xoph',
+    'Gems'
+  ];
   team1 = true;
   team2 = false;
   team3 = false;
@@ -31,6 +58,11 @@ export class HomeComponent implements OnInit {
     await this.changeTeam("Team1");
     this.itemSet = this.activeItemList.filter((item => item.SetName == "Shaper Set"))
     console.log(this.itemSet);
+  }
+
+  setImage(name:string,setName:string){
+    let re = /\s/g;
+    return "../../assets/"+setName.replace(" Set","/")+name.replace(re,"_") + "_inventory_icon.png"
   }
   onChange(event){
     this.itemSet = [];

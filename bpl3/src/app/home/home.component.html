@@ -1,4 +1,3 @@
-    <br>
     <app-menu></app-menu>
     <br>
     
@@ -6,20 +5,19 @@
     <br>
     <div class="container teamsDiv">
         <div class="lineTeams">
-
-            <div class="border" [ngClass]="(team1 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team1')">
-                <div class="teamImage"><img src="../../assets/chaos.png"></div>
-                <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeam' : ''">CHAOS</div>
+            <div class="border"  (click)="changeTeam('Team1')">
+                <div class="teamImage" [ngClass]="(team1 == true ) ? 'activeTeam' : ''"><img src="../../assets/chaos.png"></div>
+                <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeamName' : ''">CHAOS</div>
             </div>
             
-            <div class="border" [ngClass]="(team2 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team2')">
-                <div class="teamImage"><img src="../../assets/order.png"></div>
-                <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeam' : ''">ORDER</div>
+            <div class="border"  (click)="changeTeam('Team2')">
+                <div class="teamImage" [ngClass]="(team2 == true ) ? 'activeTeam' : ''"><img src="../../assets/order.png"></div>
+                <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeamName' : ''">ORDER</div>
             </div>
 
-            <div class="border" [ngClass]="(team3 == true ) ? 'activeTeam' : ''" (click)="changeTeam('Team3')">
-                <div class="teamImage"><img src="../../assets/ruin.png"></div>
-                <div class="teamName" [ngClass]="(team3 == true ) ? 'activeTeam' : ''">RUIN</div>
+            <div class="border" (click)="changeTeam('Team3')">
+                <div class="teamImage"  [ngClass]="(team3 == true ) ? 'activeTeam' : ''"><img src="../../assets/ruin.png"></div>
+                <div class="teamName" [ngClass]="(team3 == true ) ? 'activeTeamName' : ''">RUIN</div>
             </div>
         </div>
     </div>
@@ -45,7 +43,7 @@
                     <div class="itemObtained" *ngIf="activeItemList[0].Obtained == 'True'">Obtained</div>
                     <div class="itemNotObtained" *ngIf="activeItemList[0].Obtained != 'True'">Not obtained</div>
                     <div class="imgItem" [ngClass]="(activeItemList[0].Obtained == 'True' ? '' : 'notObtained')">
-                        <img src="../../assets/Shaper/sun.png">
+                        <img [src]="setImage(item.Name, item.SetName)">
                     </div>
                 </div>
 

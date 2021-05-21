@@ -11,29 +11,28 @@
     display:flex;
 }
 
-.border{
+/* .border{
     margin-right:2%;
     background-color: #1F405B;
-    padding-top:30px;
-    padding-left:20px;
-    padding-right:20px;
-    padding-bottom:40px;
-    width: 15%;
-    min-width: 250px;
+    width: 120px;
+    border-radius: 100%;
     position:relative;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
     
 
-}
+} */
 
 .lineTeams{
-    width:50%;
+    width:60%;
     display:flex;
     justify-content: space-around;
+    vertical-align: middle;
 }
 .teamImage{
-    background-color: white;
-}
+    background-color: #1F405B;
+    border-radius: 100%;
+    padding:10px;
+    }
 
 .teamImage img{
     margin-left:auto;
@@ -43,12 +42,12 @@
 
 
 .teamName{
-    background-color:#1F405B;
+
     width:50%;
-    padding:15px;
     margin-right:auto;
     margin-left:auto;
     font-size:1em;
+    padding:5px;
     text-shadow: 1.5px 1.5px #281C3C;
     color:white;
     text-align:center;
@@ -60,15 +59,17 @@
     width:90%;
 }
 
-.border:hover{
+.teamImage:hover{
     background-color:#281C3C;
 }
 
-.border:hover .teamName, .activeTeam{
+.teamImage:hover .teamName, .activeTeam{
     background-color:#281C3C;
     text-shadow: 1.5px 1.5px #1F405B;
 }
-
+.activeTeamName{
+    text-shadow: 5px 5px #281C3C;
+}
 .mat-select-panel{
     background-color: red;
 }
