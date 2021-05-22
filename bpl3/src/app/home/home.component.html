@@ -22,7 +22,7 @@
     <div class="container sets" id="" >
         <mat-form-field appearance="fill" class="select">
             <mat-label class="tes">Select set here</mat-label>
-            <mat-select matNativeControl (selectionChange)="onChange($event)">
+            <mat-select matNativeControl (selectionChange)="onChange($event.value)">
               <mat-option *ngFor="let option of setNames" [value]="option"
                       [selected]="activeSet">{{ option }}</mat-option>
             </mat-select>

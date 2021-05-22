@@ -65,9 +65,10 @@ export class HomeComponent implements OnInit {
     return "../../assets/"+setName.replace(" Set","/")+name.replace(re,"_") + "_inventory_icon.png"
   }
   onChange(event){
+    console.log(event)
     this.itemSet = [];
-    if (event.value == "Labyrinth Jewel") this.itemSet = this.activeItemList.filter((item => item.SetName == event.value))
-    else this.itemSet = this.activeItemList.filter((item => item.SetName == event.value + " Set"))
+    if (event.value == "Labyrinth Jewel") this.itemSet = this.activeItemList.filter((item => item.SetName == event))
+    else this.itemSet = this.activeItemList.filter((item => item.SetName == event.replace(" Set","") + " Set"))
     console.log(this.itemSet)
     this.activeSet = this.itemSet[0].SetName;
   }
@@ -91,6 +92,7 @@ export class HomeComponent implements OnInit {
       this.team3 = true;
       this.activeItemList = await this.apiService.getItems("/Team3");
     }
+    this.onChange(this.activeSet)
   }
 
   changeSet(set){
