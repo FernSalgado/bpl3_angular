@@ -3,17 +3,17 @@
     <div class="container teamsDiv">
         <div class="lineTeams">
             <div class="border"  (click)="changeTeam('Team1')">
-                <div class="teamImage" [ngClass]="(team1 == true ) ? 'activeTeam' : ''"><img src="../../assets/chaos.png"></div>
+                <div class="teamImage" [ngClass]="(team1 == true ) ? 'activeTeam' : ''"><img src="../../assets/Chaos.png"></div>
                 <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeamName' : ''">CHAOS</div>
             </div>
             
             <div class="border"  (click)="changeTeam('Team2')">
-                <div class="teamImage" [ngClass]="(team2 == true ) ? 'activeTeam' : ''"><img src="../../assets/order.png"></div>
+                <div class="teamImage" [ngClass]="(team2 == true ) ? 'activeTeam' : ''"><img src="../../assets/Order.png"></div>
                 <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeamName' : ''">ORDER</div>
             </div>
 
             <div class="border" (click)="changeTeam('Team3')">
-                <div class="teamImage"  [ngClass]="(team3 == true ) ? 'activeTeam' : ''"><img src="../../assets/ruin.png"></div>
+                <div class="teamImage"  [ngClass]="(team3 == true ) ? 'activeTeam' : ''"><img src="../../assets/Ruin.png"></div>
                 <div class="teamName" [ngClass]="(team3 == true ) ? 'activeTeamName' : ''">RUIN</div>
             </div>
         </div>
@@ -35,9 +35,9 @@
             <div class="stashCollection" >
                 <div class="stashItem" *ngFor="let item of itemSet">
                     <div class="itemTitle">{{item.Name}}</div>
-                    <div class="itemObtained" *ngIf="activeItemList[0].Obtained == 'True'">Obtained</div>
-                    <div class="itemNotObtained" *ngIf="activeItemList[0].Obtained != 'True'">Not obtained</div>
-                    <div class="imgItem" [ngClass]="(activeItemList[0].Obtained == 'True' ? '' : 'notObtained')">
+                    <div class="itemObtained" *ngIf="item.Obtained == 'True'">Obtained</div>
+                    <div class="itemNotObtained" *ngIf="item.Obtained != 'True'">Not obtained</div>
+                    <div class="imgItem" [ngClass]="item.Obtained == 'True' ? '' : 'notObtained'">
                         <img [src]="setImage(item.Name, item.SetName)">
                     </div>
             </div>
