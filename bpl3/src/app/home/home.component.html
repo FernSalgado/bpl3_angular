@@ -2,14 +2,14 @@
     <br><br>
     <div class="container teamsDiv">
         <div class="lineTeams">
-            <div class="border"  (click)="changeTeam('Team1')">
-                <div class="teamImage" [ngClass]="(team1 == true ) ? 'activeTeam' : ''"><img src="../../assets/Chaos.png"></div>
-                <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeamName' : ''">CHAOS</div>
+            <div class="border"  (click)="changeTeam('Team2')">
+                <div class="teamImage" [ngClass]="(team2 == true ) ? 'activeTeam' : ''"><img src="../../assets/Chaos.png"></div>
+                <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeamName' : ''">CHAOS</div>
             </div>
             
-            <div class="border"  (click)="changeTeam('Team2')">
-                <div class="teamImage" [ngClass]="(team2 == true ) ? 'activeTeam' : ''"><img src="../../assets/Order.png"></div>
-                <div class="teamName" [ngClass]="(team2 == true ) ? 'activeTeamName' : ''">ORDER</div>
+            <div class="border"  (click)="changeTeam('Team1')">
+                <div class="teamImage" [ngClass]="(team1 == true ) ? 'activeTeam' : ''"><img src="../../assets/Order.png"></div>
+                <div class="teamName" [ngClass]="(team1 == true ) ? 'activeTeamName' : ''">ORDER</div>
             </div>
 
             <div class="border" (click)="changeTeam('Team3')">
