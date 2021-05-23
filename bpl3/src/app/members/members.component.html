@@ -9,38 +9,50 @@
     
         <!-- Position Column -->
         <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Team </th>
+        <th title="Team Name and logo" mat-header-cell *matHeaderCellDef> Team </th>
         <td mat-cell *matCellDef="let element"> <img class="logo" [src]="checkTeam(element.Name)">{{element.Name}} </td>
         </ng-container>
     
         <!-- Name Column -->
         <ng-container matColumnDef="leader">
-        <th mat-header-cell *matHeaderCellDef> Leader </th>
+        <th title="Team Leader(s)" mat-header-cell *matHeaderCellDef> Leader </th>
         <td mat-cell *matCellDef="let element"> {{element.Leader}} </td>
         </ng-container>
         <ng-container matColumnDef="setPoints">
-            <th mat-header-cell *matHeaderCellDef> Set Points </th>
+            <th title="Number of uniques x 250 + Number of sets x 500" mat-header-cell *matHeaderCellDef> Set Points </th>
             <td mat-cell *matCellDef="let element"> {{element.SetPoints}} </td>
         </ng-container>
         <ng-container matColumnDef="levelPoints">
-            <th mat-header-cell *matHeaderCellDef> Level Points </th>
+            <th title="Points based on players level" mat-header-cell *matHeaderCellDef> Level </th>
             <td mat-cell *matCellDef="let element"> {{element.LevelPoints}} </td>
         </ng-container>
         <ng-container matColumnDef="delvePoints">
-            <th mat-header-cell *matHeaderCellDef> Delve Points </th>
+            <th title="Points based on Delve Depth" mat-header-cell *matHeaderCellDef> Delve </th>
             <td mat-cell *matCellDef="let element"> {{element.DelvePoints}} </td>
         </ng-container>
         <ng-container matColumnDef="bossPoints">
-            <th mat-header-cell *matHeaderCellDef> Boss Points </th>
+            <th title="Points obtained by killing bounty bosses" mat-header-cell *matHeaderCellDef> Boss </th>
             <td mat-cell *matCellDef="let element"> {{element.BossPoints}} </td>
         </ng-container>
         <ng-container matColumnDef="gemPoints">
-            <th mat-header-cell *matHeaderCellDef> Gem Points </th>
+            <th title="Number of gems x 100"mat-header-cell *matHeaderCellDef> Gem Points </th>
             <td mat-cell *matCellDef="let element"> {{element.GemPoints}} </td>
         </ng-container>
         <ng-container matColumnDef="totalPoints">
-            <th mat-header-cell *matHeaderCellDef> Points </th>
+            <th title="Sum of all other points" mat-header-cell *matHeaderCellDef>Points</th>
             <td mat-cell *matCellDef="let element"> {{element.TotalPoints}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nGems">
+            <th title="Number of Gems Obtained" mat-header-cell *matHeaderCellDef>Gems</th>
+            <td mat-cell *matCellDef="let element"> {{element.ObtainedGems}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nUniques">
+            <th title="Number of Uniques Obtained" mat-header-cell *matHeaderCellDef>Uniques</th>
+            <td mat-cell *matCellDef="let element"> {{element.ObtainedUniques}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nSets">
+            <th title="Number of Sets Completed" mat-header-cell *matHeaderCellDef>Sets</th>
+            <td mat-cell *matCellDef="let element"> {{element.ObtainedSets}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>

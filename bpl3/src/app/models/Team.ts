@@ -6,5 +6,8 @@ export interface Team{
     LevelPoints:Number,
     DelvePoints:Number,
     SetPoints:Number,
+    ObtainedGems:Number,
+    ObtainedSets:Number,
+    ObtainedUniques:Number,
     StashUrl:String[]
 }
